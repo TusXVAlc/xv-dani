@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>XV Daniela Alcantara</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(to bottom,#4B236D,#7A3E9D,#D6A84F,#F7E7A9);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* FONDO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  padding:20px;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1974&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
+  opacity:0.2;
+  z-index:-2;
+}
+
+/* DESTELLOS */
+.sparkle{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:#FFD95A;
+  border-radius:50%;
+  box-shadow:0 0 20px #FFD95A;
+  animation:float 5s infinite ease-in-out;
+}
+
+.sparkle:nth-child(1){ top:10%; left:15%; }
+.sparkle:nth-child(2){ top:20%; right:10%; }
+.sparkle:nth-child(3){ bottom:20%; left:20%; }
+.sparkle:nth-child(4){ bottom:15%; right:15%; }
+
+@keyframes float{
+  0%{ transform:translateY(0px);}
+  50%{ transform:translateY(-20px);}
+  100%{ transform:translateY(0px);}
+}
+
+/* LINTERNA */
+.lantern{
+  position:absolute;
+  width:70px;
+  opacity:0.9;
+  animation:lantern 6s infinite ease-in-out;
+}
+
+.l1{
+  top:8%;
+  left:8%;
+}
+
+.l2{
+  bottom:10%;
+  right:10%;
+}
+
+@keyframes lantern{
+  0%{ transform:translateY(0px);}
+  50%{ transform:translateY(-25px);}
+  100%{ transform:translateY(0px);}
+}
+
+.hero h1{
+  font-size:5rem;
+  font-family:'Great Vibes',cursive;
+  margin-bottom:15px;
+  text-shadow:0 0 20px rgba(255,217,90,.8);
+}
+
+.hero p{
+  font-size:1.2rem;
+  max-width:700px;
+}
+
+.date{
+  margin-top:25px;
+  font-size:1.4rem;
+  font-weight:600;
+}
+
+/* CUENTA */
+.countdown{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:35px;
+}
+
+.time-box{
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:25px;
+  min-width:90px;
+  box-shadow:0 8px 30px rgba(0,0,0,.3);
+}
+
+.time-box h3{
+  font-size:2rem;
+}
+
+/* GENERAL */
+section{
+  padding:80px 20px;
+}
+
+.card{
+  max-width:1000px;
+  margin:auto;
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(10px);
+  border-radius:30px;
+  padding:40px;
+  box-shadow:0 8px 30px rgba(0,0,0,.3);
+}
+
+.section-title{
+  text-align:center;
+  font-size:3rem;
+  margin-bottom:25px;
+  font-family:'Great Vibes',cursive;
+}
+
+/* UBICACIONES */
+.locations{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.location-card{
+  background:rgba(255,255,255,.12);
+  border-radius:25px;
+  padding:25px;
+  text-align:center;
+}
+
+/* ITINERARIO */
+.itinerary{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.item{
+  background:rgba(255,255,255,.12);
+  padding:25px;
+  border-radius:25px;
+  text-align:center;
+}
+
+/* REGALOS */
+.gifts{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.gifts a{
+  text-decoration:none;
+  color:white;
+  background:#7E3FA0;
+  padding:15px 30px;
+  border-radius:50px;
+  transition:.3s;
+  font-weight:600;
+}
+
+.gifts a:hover{
+  transform:scale(1.05);
+  background:#9B59B6;
+}
+
+/* GALERIA */
+.gallery{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding-bottom:15px;
+  scroll-snap-type:x mandatory;
+}
+
+.gallery img{
+  width:280px;
+  height:400px;
+  object-fit:cover;
+  border-radius:25px;
+  scroll-snap-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.4);
+}
+
+.gallery::-webkit-scrollbar{
+  height:8px;
+}
+
+.gallery::-webkit-scrollbar-thumb{
+  background:#FFD95A;
+  border-radius:20px;
+}
+
+/* QR */
+.qr{
+  text-align:center;
+  margin-top:40px;
+}
+
+.qr img{
+  width:180px;
+  background:white;
+  padding:10px;
+  border-radius:20px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  opacity:.8;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.hero h1{
+  font-size:3.5rem;
+}
+
+.section-title{
+  font-size:2.5rem;
+}
+
+.gallery img{
+  width:230px;
+  height:330px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- DESTELLOS -->
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+
+<!-- HERO -->
+<section class="hero">
+
+<img class="lantern l1" src="https://cdn-icons-png.flaticon.com/512/616/616554.png">
+<img class="lantern l2" src="https://cdn-icons-png.flaticon.com/512/616/616554.png">
+
+<h1>Daniela Alcantara</h1>
+
+<p>
+✨ Mis XV Años ✨
+<br><br>
+“Quiero que seas parte de esta noche mágica llena de sueños, luces y momentos inolvidables”
+</p>
+
+<div class="date">
+20 de Junio del 2026
+</div>
+
+<!-- CUENTA -->
+<div class="countdown">
+
+<div class="time-box">
+<h3 id="days">00</h3>
+<span>Días</span>
+</div>
+
+<div class="time-box">
+<h3 id="hours">00</h3>
+<span>Horas</span>
+</div>
+
+<div class="time-box">
+<h3 id="minutes">00</h3>
+<span>Min</span>
+</div>
+
+<div class="time-box">
+<h3 id="seconds">00</h3>
+<span>Seg</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- UBICACION -->
+<section>
+
+<div class="card">
+
+<h2 class="section-title">
+📍 Ubicación
+</h2>
+
+<div class="locations">
+
+<div class="location-card">
+<h3>⛪ Iglesia</h3>
+<br>
+<p>El Ranchito</p>
+<p>Toluca, Estado de México</p>
+</div>
+
+<div class="location-card">
+<h3>🎉 Salón</h3>
+<br>
+<p>Quinta de Bernal</p>
+<p>Toluca, Estado de México</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ITINERARIO -->
+<section>
+
+<div class="card">
+
+<h2 class="section-title">
+✨ Itinerario
+</h2>
+
+<div class="itinerary">
+
+<div class="item">
+<h3>5:00 PM</h3>
+<p>Ceremonia religiosa</p>
+</div>
+
+<div class="item">
+<h3>6:30 PM</h3>
+<p>Sesión de fotos</p>
+</div>
+
+<div class="item">
+<h3>7:30 PM</h3>
+<p>Cena</p>
+</div>
+
+<div class="item">
+<h3>9:00 PM</h3>
+<p>Vals y baile</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- REGALOS -->
+<section>
+
+<div class="card">
+
+<h2 class="section-title">
+🎁 Mesa de Regalos
+</h2>
+
+<p style="text-align:center;">
+Tu presencia es mi mejor regalo, pero si deseas tener un detalle conmigo podrás encontrar mi mesa de regalos aquí ✨
+</p>
+
+<div class="gifts">
+
+<a href="#">Amazon</a>
+<a href="#">Liverpool</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALERIA -->
+<section>
+
+<div class="card">
+
+<h2 class="section-title">
+📸 Galería
+</h2>
+
+<p style="text-align:center;margin-bottom:25px;">
+Desliza para ver las fotos ✨
+</p>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1974&auto=format&fit=crop">
+
+</div>
+
+<div class="qr">
+
+<h3>✨ Comparte tus fotos ✨</h3>
+<br>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=XVDaniela">
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+Daniela Alcantara XV Años ✨
+</footer>
+
+<script>
+
+/* CUENTA REGRESIVA */
+
+const targetDate = new Date("June 20, 2026 00:00:00").getTime();
+
+setInterval(() => {
+
+const now = new Date().getTime();
+const distance = targetDate - now;
+
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("days").innerHTML = days;
+document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML = minutes;
+document.getElementById("seconds").innerHTML = seconds;
+
+},1000);
+
+</script>
+
+</body>
+</html>
